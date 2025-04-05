@@ -2,14 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - iGNiS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+      color: #fff;
+
+      /* Heading/H01 */
+      font-family: Raleway;
+      font-size: 6rem;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 100%; /* 6rem */
+    }
+
+    h2 {
+      color: #fff;
+
+      /* Heading/H02 */
+      font-family: Raleway;
+      font-size: 4rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%; /* 4rem */
+    }
+
+    h3 {
+      color: #fff;
+
+      /* Heading/H03 */
+      font-family: Raleway;
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 100%; /* 3rem */
+    }
+
+    body {
+      color: #fff;
+
+      /* Body/B01 */
+      font-family: "Space Mono";
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%; /* 2.6rem */
+      background: url("Assets/Background.png");
     }
 
     body {
@@ -31,7 +84,7 @@
       gap: 30px;
       max-width: 900px;
       width: 100%;
-      padding: 0px 187px;
+      padding: 20px;
     }
 
     @media (min-width: 768px) {
@@ -154,6 +207,7 @@
 
     .social-icons a:hover {
       color: #00ff88;
+      height: 50px;
     }
 
     .right-box {
@@ -173,12 +227,7 @@
 
     .signup-link:hover {
       text-decoration: underline;
-    }
 
-    .error-msg {
-      color: #ff4d4d;
-      text-align: center;
-      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -187,37 +236,31 @@
     <!-- Left Side: Login -->
     <div class="left-box">
       <div class="logo">
-        <img src="https://storage.googleapis.com/a1aa/image/EhwGOBellwYTxvYtbnEqia1OcQdqU3wnfNcQfy3BTSA.jpg" alt="iGNiS logo"/>
+        <img src="Assets/Logo.svg" alt="iGNiS logo" />
         <span class="logo-text">iGNiS</span>
       </div>
       <div class="login-box">
         <h2>LOGIN</h2>
-
-        {% if error %}
-        <div class="error-msg">{{ error }}</div>
-        {% endif %}
-
-        <form method="POST" action="/">
+        <form>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required />
           </div>
           <div class="form-options">
-            <label><input type="checkbox" name="remember" /> Remember Me?</label>
+            <label><input type="checkbox" /> Remember Me?</label>
             <a href="#">Forgot Password?</a>
           </div>
           <button type="submit" class="login-btn">Login</button>
         </form>
-
         <div class="divider">Or Login with</div>
         <div class="social-icons">
-          <a href="#" title="Login with Google">G</a>
-          <a href="#" title="Login with Facebook">F</a>
-          <a href="#" title="Login with X">X</a>
+          <a class="icon" title="Login with Google"><img src="Assets/Google.svg"></a>
+          <a class="icon" href="#" title="Login with Facebook"><img src="Assets/Facebook.png"></a>
+          <a class="icon" href="#" title="Login with X"><img src="Assets/X.svg"></a>
         </div>
       </div>
     </div>
@@ -225,7 +268,8 @@
     <!-- Right Side: Signup Prompt -->
     <div class="right-box">
       <p>Don't have an account?</p>
-      <a href="{{ url_for('register') }}" class="signup-link">SIGNUP</a>
+      <h1 href="#" class="signup-link">SIGNUP</h1>
     </div>
   </div>
-</body
+</body>
+</html>
