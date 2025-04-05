@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login - iGNiS</title>
   <style>
     * {
@@ -31,7 +31,7 @@
       gap: 30px;
       max-width: 900px;
       width: 100%;
-      padding: 20px;
+      padding: 0px 187px;
     }
 
     @media (min-width: 768px) {
@@ -174,6 +174,12 @@
     .signup-link:hover {
       text-decoration: underline;
     }
+
+    .error-msg {
+      color: #ff4d4d;
+      text-align: center;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -181,26 +187,32 @@
     <!-- Left Side: Login -->
     <div class="left-box">
       <div class="logo">
-        <img src="https://storage.googleapis.com/a1aa/image/EhwGOBellwYTxvYtbnEqia1OcQdqU3wnfNcQfy3BTSA.jpg" alt="iGNiS logo" />
+        <img src="https://storage.googleapis.com/a1aa/image/EhwGOBellwYTxvYtbnEqia1OcQdqU3wnfNcQfy3BTSA.jpg" alt="iGNiS logo"/>
         <span class="logo-text">iGNiS</span>
       </div>
       <div class="login-box">
         <h2>LOGIN</h2>
-        <form>
+
+        {% if error %}
+        <div class="error-msg">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="/">
           <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required />
           </div>
           <div class="form-options">
-            <label><input type="checkbox" /> Remember Me?</label>
+            <label><input type="checkbox" name="remember" /> Remember Me?</label>
             <a href="#">Forgot Password?</a>
           </div>
           <button type="submit" class="login-btn">Login</button>
         </form>
+
         <div class="divider">Or Login with</div>
         <div class="social-icons">
           <a href="#" title="Login with Google">G</a>
@@ -213,8 +225,7 @@
     <!-- Right Side: Signup Prompt -->
     <div class="right-box">
       <p>Don't have an account?</p>
-      <a href="#" class="signup-link">SIGNUP</a>
+      <a href="{{ url_for('register') }}" class="signup-link">SIGNUP</a>
     </div>
   </div>
-</body>
-</html>
+</body

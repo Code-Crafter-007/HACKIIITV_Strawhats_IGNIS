@@ -22,7 +22,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 0px 187px;
       color: white;
     }
 
@@ -60,6 +60,20 @@
         align-items: center;
         justify-content: center;
       }
+    }
+    .login-btn {
+      width: 100%;
+      background-color: #00ff88;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-btn:hover {
+      background-color: #00e676;
     }
 
     .left-box {
@@ -172,27 +186,25 @@
     <div class="left-box">
       <div class="left-box-inner">
         <p>Already have an account?</p>
-        <a href="#">LOGIN</a>
+        <a href="{{url_for('login')}}">LOGIN</a>
       </div>
     </div>
 
     <!-- Signup Box -->
     <div class="signup-box">
       <h2>SIGNUP</h2>
-      <form>
+      <form action="{{ url_for('register') }}" method="POST">
         <div class="form-group">
-          <input type="text" placeholder="Name" required />
+          <input type="text" name="username" placeholder="Username" required />
         </div>
         <div class="form-group">
-          <input type="email" placeholder="Email" required />
+          <input type="email" name="email" placeholder="Email" required />
         </div>
         <div class="form-group">
-          <input type="text" placeholder="Username" required />
+          <input type="password" name="password" placeholder="Password" required />
         </div>
-        <div class="form-group">
-          <input type="password" placeholder="Password" required />
-        </div>
-
+        <button type="submit" class="login-btn">Register</button>
+      
         <div class="social-login">
           <p>Or Login with</p>
           <div class="social-icons">
@@ -202,6 +214,7 @@
           </div>
         </div>
       </form>
+      
     </div>
   </div>
 </body>

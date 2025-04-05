@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Focus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        @keyframes moveShape {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 50px); }
+            50% { transform: translate(100px, 0); }
+            75% { transform: translate(50px, -50px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes moveEdges {
+            0% { points: "150,30 270,150 210,270 90,210 30,90"; }
+            25% { points: "180,60 300,180 240,300 120,240 60,120"; }
+            50% { points: "150,30 270,150 210,270 90,210 30,90"; }
+            75% { points: "120,0 240,120 180,240 60,180 0,60"; }
+            100% { points: "150,30 270,150 210,270 90,210 30,90"; }
+        }
+
+        .animated-shape {
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top: 25%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            animation: moveShape 5s infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .polygon {
+            fill: none;
+            stroke: cyan;
+            stroke-width: 2;
+            animation: moveEdges 5s infinite;
+        }
+
+        .vertex {
+            fill: white;
+            stroke: cyan;
+            stroke-width: 1;
+            r: 4;
+            filter: drop-shadow(0 0 5px cyan);
+        }
+
+        .tasks-container input {
+            background-color: #2d2d2d;
+        }
+
+        .completed-task {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .check-icon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="flex justify-between items-start min-h-screen p-8 relative">
+    <!-- Left Section -->
+    <div class="space-y-8 z-10">
+        <h1 class="text-6xl font-bold text-green-500">Focus</h1>
+        <div class="bg-gray-800 p-6 rounded-lg space-y-4">
+            <div class="flex justify-between items-center">
+                <span id="timer" class="text-4xl font-bold text-green-500">12:00</span>
+                <i class="fas fa-sync-alt text-gray-400 cursor-pointer" onclick="updateTime('12:00')"></i>
+            </div>
+            <div class="flex justify-between text-gray-400">
+                <span>Pomodoro</span>
+                <span>Short Break</span>
+                <span>Long Break</span>
+            </div>
+            <div class="flex space-x-4">
+                <button onclick="updateTime('25:00')" class="bg-gray-700 text-white py-2 px-4 rounded">Pomodoro</button>
+                <button onclick="updateTime('05:00')" class="bg-gray-700 text-white py-2 px-4 rounded">Short Break</button>
+                <button onclick="updateTime('15:00')" class="bg-gray-700 text-white py-2 px-4 rounded">Long Break</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="bg-gray-800 p-6 rounded-lg space-y-4 z-10">
+        <div class="flex justify-between items-center">
+            <i class="fas fa-pen text-gray-400"></i>
+            <i class="fas fa-clock text-gray-400"></i>
+            <i class="fas fa-list text-gray-400"></i>
+            <i class="fas fa-music text-gray-400"></i>
+        </div>
+        <div class="space-y-4">
+            <div class="bg-gray-900 p-4 rounded-lg space-y-2">
+                <h2 class="text-green-500">Tasks</h2>
+                <div class="flex items-center mb-2 add-task-button cursor-pointer">
+                    <i class="fas fa-plus text-gray-400 mr-2"></i>
+                    <span class="text-gray-400">Add a task</span>
+                </div>
+                <div class="tasks-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Pentagon Shape -->
+    <div class="animated-shape">
+        <svg width="600" height="600">
+            <polygon points="150,30 270,150 210,270 90,210 30,90" class="polygon"/>
+            <!-- Vertices -->
+            <circle class="vertex" cx="150" cy="30"/>
+            <circle class="vertex" cx="270" cy="150"/>
+            <circle class="vertex" cx="210" cy="270"/>
+            <circle class="vertex" cx="90" cy="210"/>
+            <circle class="vertex" cx="30" cy="90"/>
+        </svg>
+    </div>
+
+    <script>
+        let timerInterval;
+
+        function startTimer(duration) {
+            clearInterval(timerInterval);
+            let timer = duration, minutes, seconds;
+            timerInterval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                document.getElementById('timer').innerText = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('timer').innerText = "00:00";
+                }
+            }, 1000);
+        }
+
+        function updateTime(time) {
+            const [minutes, seconds] = time.split(':').map(Number);
+            const duration = minutes * 60 + seconds;
+            startTimer(duration);
+        }
+
+        function addTask() {
+            const tasksContainer = document.querySelector('.tasks-container');
+            const taskDiv = document.createElement('div');
+            taskDiv.className = 'flex items-center mb-2 space-x-2';
+
+            taskDiv.innerHTML = `
+                <i class="fas fa-check text-gray-400 check-icon"></i>
+                <input type="text" placeholder="Add a task" class="bg-gray-700 text-white p-2 rounded w-full focus:outline-none task-input">
+            `;
+
+            tasksContainer.appendChild(taskDiv);
+
+            const checkIcon = taskDiv.querySelector('.check-icon');
+            const input = taskDiv.querySelector('.task-input');
+
+            checkIcon.addEventListener('click', () => {
+                input.classList.toggle('completed-task');
+                checkIcon.classList.toggle('text-green-400');
+                checkIcon.classList.toggle('text-gray-400');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.add-task-button').addEventListener('click', addTask);
+        });
+    </script>
+</body>
+</html>

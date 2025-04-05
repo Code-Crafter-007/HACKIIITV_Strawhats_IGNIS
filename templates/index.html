@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IGNIS</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Poppins', sans-serif;
       color: white;
       background-color: #000;
       background-image: 
@@ -112,7 +112,6 @@
       color: #ccc;
     }
 
-    /* Gemini Chatbox */
     .chatbox {
       background: #111;
       border-top: 1px solid #333;
@@ -149,6 +148,11 @@
       margin-top: 20px;
       font-size: 16px;
       color: #eee;
+      white-space: pre-wrap;
+      text-align: left;
+      max-width: 800px;
+      margin: 20px auto 0;
+      min-height: 100px;
     }
 
     @media (max-width: 600px) {
@@ -184,9 +188,13 @@
   <header>
     <img src="https://storage.googleapis.com/a1aa/image/3bEIflHrC-kTZRaNn7__aSId61VFvG9c9nM5EHlpBPo.jpg" alt="IGNIS logo">
     <nav>
-      <a href="#">Home</a>
+      <a href="{{url_for('index')}}">Home</a>
+      <a href="{{url_for('focus')}}">Focus</a>
       <a href="#">About</a>
+      <a href="#">Resources</a>
+      <a href="#">Ideaboard</a>
       <a href="#">Contact</a>
+      <a href="{{ url_for('login') }}">Logout</a>
     </nav>
   </header>
 
@@ -212,6 +220,13 @@
       <p>IGNIS is the perfect place for designers to find inspiration, collaborate with others, and take their skills to the next level.</p>
     </section>
 
+    
+    <section class="chatbox">
+      <h2 class="section-title">Ask Gemini AI</h2>
+      <input type="text" id="userInput" placeholder="Type your question...">
+      <button onclick="askAI()">Ask</button>
+      <p id="response"></p>
+    </section>
     <section class="centered">
       <h2 class="section-title">TEAM</h2>
       <div class="team-grid">
@@ -237,19 +252,21 @@
         </div>
       </div>
     </section>
-
-    <!-- Gemini AI Chat Section -->
-    <section class="chatbox">
-      <h2 class="section-title">Ask Gemini AI</h2>
-      <input type="text" id="userInput" placeholder="Type your question...">
-      <button onclick="askAI()">Ask</button>
-      <p id="response"></p>
-    </section>
-  </main>
+</main>
 
   <script>
+    function typeWriter(text, i, speed) {
+      if (i < text.length) {
+        document.getElementById("response").innerHTML += text.charAt(i);
+        setTimeout(function() {
+          typeWriter(text, i + 1, speed);
+        }, speed);
+      }
+    }
+
     function askAI() {
       const message = document.getElementById("userInput").value;
+      document.getElementById("response").innerHTML = "Thinking...";
       fetch("/ask", {
         method: "POST",
         headers: {
@@ -259,9 +276,13 @@
       })
       .then(response => response.json())
       .then(data => {
-        document.getElementById("response").innerText = data.reply;
+        document.getElementById("response").innerHTML = "";
+        typeWriter(data.reply, 0, 20); // Typing speed: 20ms
       })
-      .catch(error => console.error("Error:", error));
+      .catch(error => {
+        document.getElementById("response").innerText = "Something went wrong. Try again!";
+        console.error("Error:", error);
+      });
     }
   </script>
 </body>
