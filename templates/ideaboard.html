@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Design Project Idea Board</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #f9fafb;
+    }
+
+    header {
+      background: linear-gradient(to right, #34d399, #10b981);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 350px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background: #34d399;
+      color: white;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    .idea-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .idea-card {
+      background: #1f2937;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .idea-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .idea-card h3 {
+      color: #10b981;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .idea-card p {
+      margin-bottom: 15px;
+      font-size: 0.95em;
+      color: #f9fafb;
+    }
+
+    .idea-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background-color: #d1fae5;
+      color: #065f46;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 9999px;
+    }
+
+    #dailyChallenge {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #4ECCA3;
+      color: #232931;
+      border-radius: 5px;
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    nav {
+        align-items: center;
+        height: 50px;
+        position: sticky;
+    }
+
+    nav img{
+        align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #00ff88;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #f9fafb;
+      background: #1f2937;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <img src="/static/Assets/Logo.svg" height="32px" alt="">
+        <a href="{{url_for('index')}}">Home</a>
+        <a href="{{url_for('focus')}}">Focus</a>
+        <a href="{{url_for('resources')}}">Resources</a>
+        <a href="{{url_for('ideaboard')}}">Ideaboard</a>
+        <a href="{{url_for('profile')}}">Profile</a>
+        <a href="#">Contact</a>
+        <a href="{{ url_for('login') }}">Logout</a>
+      </nav>
+
+  <header>
+    <h1>🎨 Design Project Idea Board</h1>
+    <p>Find creative freelance-style ideas based on your design role</p>
+  </header>
+
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by role, style, or keywords...">
+      <button onclick="filterIdeas()">Search</button>
+    </div>
+
+    <div class="button-container">
+      <button id="rollDiceButton">🎲 Roll for Daily Challenge</button>
+    </div>
+    
+    <div id="dailyChallenge" class="idea-card"></div>
+
+    <div class="idea-grid" id="ideaGrid">
+      <!-- Ideas will be inserted here -->
+    </div>
+  </div>
+
+  <footer>
+    💻 Built for creators who dream big. Keep creating. | © 2025
+  </footer>
+
+  <script>
+    const ideas = [
+      { title: "Poster Series for a Music Festival", description: "Design 3–5 bold and artistic posters for a fictional indie music fest.", tags: ["Graphic Designer", "Poster", "Typography"] },
+      { title: "Social Media Templates", description: "Create IG/Facebook templates for a fictional skincare brand.", tags: ["Graphic Designer", "Social Media", "Branding"] },
+      { title: "NGO Website Homepage", description: "Design a clean and welcoming landing page for a fictional environmental NGO.", tags: ["Web Designer", "Landing Page", "Nonprofit"] },
+      { title: "Freelancer Dashboard UI", description: "Design home, calendar, and earnings screen for freelancers.", tags: ["UI Designer", "Dashboard", "Minimal"] },
+      { title: "UX Audit: Food Delivery App", description: "Analyze an app like Swiggy and suggest improvements.", tags: ["UX Designer", "Case Study", "Research"] },
+      { title: "Logo Animation", description: "Create a short logo reveal animation for a fictional brand.", tags: ["Motion Graphics Designer", "Logo Reveal", "After Effects"] },
+      { title: "Component Library", description: "Code + design reusable components: buttons, cards, navbars.", tags: ["Front-end Designer", "HTML/CSS/JS", "Components"] },
+      { title: "SaaS Dashboard for Creators", description: "Design full dashboard UI/UX for video creators tracking metrics.", tags: ["Product Designer", "SaaS", "Dashboard"] },
+      { title: "Infographic Series", description: "Create infographics on a topic, focusing on data visualization.", tags: ["Graphic Designer", "Infographic", "Data"] },
+      { title: "Custom Icons Set", description: "Design a set of custom icons for a specific application or website.", tags: ["UI Designer", "Icons", "Set"] }
+    ];
+
+    function createCard(idea) {
+      const card = document.createElement("div");
+      card.className = "idea-card";
+      card.innerHTML = `
+        <h3>${idea.title}</h3>
+        <p>${idea.description}</p>
+        <div class="idea-tags">
+          ${idea.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+        </div>
+      `;
+      return card;
+    }
+
+    function loadIdeas(filtered = ideas) {
+      const grid = document.getElementById("ideaGrid");
+      grid.innerHTML = '';
+      filtered.forEach(idea => {
+        const card = createCard(idea);
+        grid.appendChild(card);
+      });
+    }
+
+    function filterIdeas() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = ideas.filter(idea =>
+        idea.title.toLowerCase().includes(query) ||
+        idea.description.toLowerCase().includes(query) ||
+        idea.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+      loadIdeas(filtered);
+    }
+
+    function rollDailyChallenge() {
+      const randomIdea = ideas[Math.floor(Math.random() * ideas.length)];
+      const challengeBox = document.getElementById("dailyChallenge");
+      challengeBox.innerHTML = `
+        <h3>🌟 Daily Design Challenge: ${randomIdea.title}</h3>
+        <p>${randomIdea.description}</p>
+        <div class="idea-tags">
+          ${randomIdea.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+        </div>
+      `;
+    }
+
+    document.getElementById("rollDiceButton").addEventListener("click", rollDailyChallenge);
+
+    // Load all ideas on page load
+    window.onload = loadIdeas;
+  </script>
+</body>
+</html>

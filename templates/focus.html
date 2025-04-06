@@ -14,6 +14,16 @@
                 linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
         }
+        nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #00ff88;
+    }
 
         @keyframes moveShape {
             0% { transform: translate(0, 0); }
@@ -72,9 +82,19 @@
         }
     </style>
 </head>
+
 <body class="flex justify-between items-start min-h-screen p-8 relative">
     <!-- Left Section -->
     <div class="space-y-8 z-10">
+        <nav>
+            <a href="{{url_for('index')}}">Home</a>
+            <a href="{{url_for('focus')}}">Focus</a>
+            <a href="{{url_for('resources')}}">Resources</a>
+            <a href="{{url_for('ideaboard')}}">Ideaboard</a>
+            <a href="{{url_for('profile')}}">Profile</a>
+            <a href="#">Contact</a>
+            <a href="{{ url_for('login') }}">Logout</a>
+          </nav>
         <h1 class="text-6xl font-bold text-green-500">Focus</h1>
         <div class="bg-gray-800 p-6 rounded-lg space-y-4">
             <div class="flex justify-between items-center">

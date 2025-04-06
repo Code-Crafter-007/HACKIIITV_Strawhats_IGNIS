@@ -81,12 +81,25 @@ def ask():
 @app.route('/focus')
 def focus():
     return render_template('focus.html')
+@app.route('/resources')
+def resources():
+    return render_template('resources.html')
+
+@app.route('/ideaboard')
+def ideaboard():
+    return render_template('ideaboard.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
     
 
 @app.route("/logout")
 def logout():
     session.pop("email", None)
     return redirect(url_for("login"))
+
 
 if __name__ == "__main__":
     app.run(debug=True)

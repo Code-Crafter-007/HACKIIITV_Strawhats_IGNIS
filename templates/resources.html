@@ -5,219 +5,238 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Design Resources</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      }
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+  
+        body {
+          background: url(/static/Assets/Background.png);
+          background-size: cover;
+          background-repeat: no-repeat;o
+          background-position: center;
+          background-attachment: fixed;
+          color: #fff;
+        }
+  
+        nav {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 20px 40px;
+          background-color: rgb(22, 21, 21);
+  
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+  
+        nav .logo {
+          height: 30px;
+        }
+  
+        .text_buttons,
+        .Outline_buttons,
+        .filled_buttons {
+          padding: 8px 16px;
+          border-radius: 6px;
+          font-size: 14px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+  
+        .text_buttons {
+          background: none;
+          border: none;
+        }
+  
+        .Outline_buttons {
+          background: none;
+          border: 1px solid #ffffff;
+        }
+  
+        .filled_buttons {
+          background: #ffffff;
+          color: rgb(0, 0, 0);
+          border: none;
+        }
+  
+        .title {
+          text-align: center;
+          padding: 60px 20px 40px;
+        }
+  
+        .title h1 {
+          font-size: 42px;
+          margin-bottom: 10px;
+        }
+  
+        .title p {
+          font-size: 18px;
+          color: #7e7e7e;
+        }
+  
+        .radio-tags {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+          padding: 0 40px 40px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+  
+        .tag {
+          display: inline-block;
+          padding: 8px 16px;
+          border-radius: 100px;
+          background-color: rgb(27, 27, 27);
+          font-size: 14px;
+          cursor: pointer;
+          border: 1px solid #000000;
+          transition: all 0.2s ease;
+        }
+  
+        .tag:hover {
+          border-color: #474646;
+          background-color: #313131;
+        }
+  
+        .tag input {
+          display: none;
+        }
+  
+        .tag input:checked + span {
+          background-color: #70ffca;
+          color: #053264;
+          /* border-color: #ffffff; */
+          display: inline-block;
+          border-radius: 100px;
+          padding: 8px 16px;
+        }
+  
+        /* Add visible selected state */
+        .tag-text {
+          display: inline-block;
+          padding: 8px 16px;
+          border-radius: 100px;
+          transition: all 0.2s ease;
+        }
+  
+        .resources-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 30px;
+          padding: 20px 40px 60px;
+          max-width: 1200px;
+          margin: 0 auto;
+          min-height: 500px;
+          position: relative;
+        }
+        nav a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
 
-      body {
-        background: url(Assets/Background.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        color: #fff;
-      }
-
-      nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 40px;
-        background-color: white;
-
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      nav .logo {
-        height: 30px;
-      }
-
-      .text_buttons,
-      .Outline_buttons,
-      .filled_buttons {
-        padding: 8px 16px;
-        border-radius: 6px;
-        font-size: 14px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .text_buttons {
-        background: none;
-        border: none;
-      }
-
-      .Outline_buttons {
-        background: none;
-        border: 1px solid #ffffff;
-      }
-
-      .filled_buttons {
-        background: #ffffff;
-        color: rgb(0, 0, 0);
-        border: none;
-      }
-
-      .title {
-        text-align: center;
-        padding: 60px 20px 40px;
-      }
-
-      .title h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-      }
-
-      .title p {
-        font-size: 18px;
-        color: #7e7e7e;
-      }
-
-      .radio-tags {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        padding: 0 40px 40px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .tag {
-        display: inline-block;
-        padding: 8px 16px;
-        border-radius: 100px;
-        background-color: rgb(27, 27, 27);
-        font-size: 14px;
-        cursor: pointer;
-        border: 1px solid #000000;
-        transition: all 0.2s ease;
-      }
-
-      .tag:hover {
-        border-color: #474646;
-        background-color: #313131;
-      }
-
-      .tag input {
-        display: none;
-      }
-
-      .tag input:checked + span {
-        background-color: #70ffca;
-        color: #053264;
-        /* border-color: #ffffff; */
-        display: inline-block;
-        border-radius: 100px;
-        padding: 8px 16px;
-      }
-
-      /* Add visible selected state */
-      .tag-text {
-        display: inline-block;
-        padding: 8px 16px;
-        border-radius: 100px;
-        transition: all 0.2s ease;
-      }
-
-      .resources-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 30px;
-        padding: 20px 40px 60px;
-        max-width: 1200px;
-        margin: 0 auto;
-        min-height: 500px;
-        position: relative;
-      }
-
-      .no-results {
-        display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        width: 100%;
-      }
-
-      .no-results h3 {
-        font-size: 24px;
-        margin-bottom: 10px;
-        color: #cecece;
-      }
-
-      .no-results p {
-        font-size: 16px;
-        color: #999;
-      }
-
-      .resource-card {
-        display: flex;
-        flex-direction: column;
-        border-radius: 12px;
-        padding: 16px;
-        background-color: #313131;
-        box-shadow: 0 4px 6px rgba(108, 108, 108, 0.05);
-        transition: all 0.3s ease;
-        opacity: 1;
-      }
-
-      .resource-card:hover {
-        /* transform: translateY(-5px); */
-        padding: 24px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-      }
-
-      .resource-card img {
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-        margin-bottom: 15px;
-        border-radius: 6px;
-      }
-
-      .resource-card h3 {
-        font-size: 18px;
-        margin-bottom: 8px;
-        font-weight: 600;
-      }
-
-      .resource-card p {
-        font-size: 14px;
-        color: #cecece;
-        margin-bottom: 15px;
-        flex-grow: 1;
-      }
-
-      .resource-card a {
-        text-decoration: none;
-        color: #70ffca;
-        font-size: 14px;
-        font-weight: 500;
-        margin-bottom: 15px;
-      }
-
-      .tag_cat {
-        border: none;
-        background: #70ffca;
-        padding: 6px 12px;
-        border-radius: 100px;
-        font-size: 12px;
-        color: #053264;
-        align-self: flex-start;
-      }
-
-      
-    </style>
+    nav a:hover {
+      color: #00ff88;
+    }
+  
+        .no-results {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          width: 100%;
+        }
+  
+        .no-results h3 {
+          font-size: 24px;
+          margin-bottom: 10px;
+          color: #cecece;
+        }
+  
+        .no-results p {
+          font-size: 16px;
+          color: #999;
+        }
+  
+        .resource-card {
+          display: flex;
+          flex-direction: column;
+          border-radius: 12px;
+          padding: 16px;
+          background-color: #313131;
+          box-shadow: 0 4px 6px rgba(108, 108, 108, 0.05);
+          transition: all 0.3s ease;
+          opacity: 1;
+        }
+  
+        .resource-card:hover {
+          /* transform: translateY(-5px); */
+          padding: 24px;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+  
+        .resource-card img {
+          width: 50px;
+          height: 50px;
+          object-fit: contain;
+          margin-bottom: 15px;
+          border-radius: 6px;
+        }
+  
+        .resource-card h3 {
+          font-size: 18px;
+          margin-bottom: 8px;
+          font-weight: 600;
+        }
+  
+        .resource-card p {
+          font-size: 14px;
+          color: #cecece;
+          margin-bottom: 15px;
+          flex-grow: 1;
+        }
+  
+        .resource-card a {
+          text-decoration: none;
+          color: #70ffca;
+          font-size: 14px;
+          font-weight: 500;
+          margin-bottom: 15px;
+        }
+  
+        .tag_cat {
+          border: none;
+          background: #70ffca;
+          padding: 6px 12px;
+          border-radius: 100px;
+          font-size: 12px;
+          color: #053264;
+          align-self: flex-start;
+        }
+  
+        
+      </style>
   </head>
   <body>
+    <nav>
+      <a href="{{url_for('index')}}">Home</a>
+      <a href="{{url_for('focus')}}">Focus</a>
+      <a href="{{url_for('resources')}}">Resources</a>
+      <a href="{{url_for('ideaboard')}}">Ideaboard</a>
+      <a href="{{url_for('profile')}}">Profile</a>
+      <a href="#">Contact</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
 
     <div class="title">
       <h1>Resources</h1>
@@ -225,83 +244,83 @@
     </div>
 
     <div class="radio-tags">
-      <label class="tag">
-        <input type="radio" name="design" value="all" checked />
-        <span class="tag-text">All</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="accessibility" />
-        <span class="tag-text">Accessibility</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="books" />
-        <span class="tag-text">Books</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="color" />
-        <span class="tag-text">Color</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="design-news" />
-        <span class="tag-text">Design News</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="design-systems" />
-        <span class="tag-text">Design Systems</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="design-tools" />
-        <span class="tag-text">Design Tools</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="icons" />
-        <span class="tag-text">Icons</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="illustrations" />
-        <span class="tag-text">Illustrations</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="inspiration" />
-        <span class="tag-text">Inspiration</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="jobs" />
-        <span class="tag-text">Jobs</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="learn-design" />
-        <span class="tag-text">Learn Design</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="mockup-tools" />
-        <span class="tag-text">Mockup Tools</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="podcasts" />
-        <span class="tag-text">Podcasts</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="prototyping-tools" />
-        <span class="tag-text">Prototyping Tools</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="stock-photos" />
-        <span class="tag-text">Stock Photos</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="resources" />
-        <span class="tag-text">Resources</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="typography" />
-        <span class="tag-text">Typography</span>
-      </label>
-      <label class="tag">
-        <input type="radio" name="design" value="wireframing" />
-        <span class="tag-text">Wireframing</span>
-      </label>
-    </div>
+        <label class="tag">
+          <input type="radio" name="design" value="all" checked />
+          <span class="tag-text">All</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="accessibility" />
+          <span class="tag-text">Accessibility</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="books" />
+          <span class="tag-text">Books</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="color" />
+          <span class="tag-text">Color</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="design-news" />
+          <span class="tag-text">Design News</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="design-systems" />
+          <span class="tag-text">Design Systems</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="design-tools" />
+          <span class="tag-text">Design Tools</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="icons" />
+          <span class="tag-text">Icons</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="illustrations" />
+          <span class="tag-text">Illustrations</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="inspiration" />
+          <span class="tag-text">Inspiration</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="jobs" />
+          <span class="tag-text">Jobs</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="learn-design" />
+          <span class="tag-text">Learn Design</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="mockup-tools" />
+          <span class="tag-text">Mockup Tools</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="podcasts" />
+          <span class="tag-text">Podcasts</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="prototyping-tools" />
+          <span class="tag-text">Prototyping Tools</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="stock-photos" />
+          <span class="tag-text">Stock Photos</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="resources" />
+          <span class="tag-text">Resources</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="typography" />
+          <span class="tag-text">Typography</span>
+        </label>
+        <label class="tag">
+          <input type="radio" name="design" value="wireframing" />
+          <span class="tag-text">Wireframing</span>
+        </label>
+      </div>
 
     <div class="resources-container">
       <!-- No results message -->
@@ -312,7 +331,7 @@
 
       <!-- Design Tools -->
       <div class="resource-card">
-        <img src="Assets/figma.png" class="logo" alt="Figma Logo" />
+        <img src="{{ url_for('static', filename='Assets/figma.png') }}" class="logo" alt="Figma Logo" />
         <h3>Figma</h3>
         <p>Design and collaborate all in the browser</p>
         <a href="https://www.figma.com" target="_blank">Visit Website</a>
@@ -320,7 +339,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/dribbble.png" class="logo" alt="Dribbble Logo" />
+        <img src="{{ url_for('static', filename='Assets/dribbble.png') }}" class="logo" alt="Dribbble Logo" />
         <h3>Dribbble</h3>
         <p>Online community for showcasing user artwork</p>
         <a href="https://dribbble.com" target="_blank">Visit Website</a>
@@ -328,7 +347,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/mobbin.gif" class="logo" alt="Mobbin Logo" />
+        <img src="{{ url_for('static', filename='Assets/mobbin.gif') }}" class="logo" alt="Mobbin Logo" />
         <h3>Mobbin</h3>
         <p>The world's largest mobile and web design library</p>
         <a href="https://mobbin.design" target="_blank">Visit Website</a>
@@ -336,7 +355,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/muzli.png" class="logo" alt="Muzli Logo" />
+        <img src="{{ url_for('static', filename='Assets/muzli.png') }}" class="logo" alt="Muzli Logo" />
         <h3>Muzli</h3>
         <p>All the design inspiration you need. Served fresh.</p>
         <a href="https://muz.li" target="_blank">Visit Website</a>
@@ -344,7 +363,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/webflow.png" class="logo" alt="Webflow Logo" />
+        <img src="{{ url_for('static', filename='Assets/webflow.png') }}" class="logo" alt="Webflow Logo" />
         <h3>Webflow</h3>
         <p>Learn web design with free video courses and tutorials</p>
         <a href="https://webflow.com" target="_blank">Visit Website</a>
@@ -352,7 +371,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/checklist-design.png" class="logo" alt="Checklist.design Logo" />
+        <img src="{{ url_for('static', filename='Assets/checklist-design.png') }}" class="logo" alt="Checklist.design Logo" />
         <h3>Checklist.design</h3>
         <p>A collection of the best UX and UI practices.</p>
         <a href="https://checklist.design" target="_blank">Visit Website</a>
@@ -360,7 +379,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/unsplash.png" class="logo" alt="Unsplash Logo" />
+        <img src="{{ url_for('static', filename='Assets/unsplash.png') }}" class="logo" alt="Unsplash Logo" />
         <h3>Unsplash</h3>
         <p>The internet's source of freely usable images</p>
         <a href="https://unsplash.com" target="_blank">Visit Website</a>
@@ -368,7 +387,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/sidebar.png" class="logo" alt="Sidebar Logo" />
+        <img src="{{ url_for('static', filename='Assets/sidebar.png') }}" class="logo" alt="Sidebar Logo" />
         <h3>Sidebar</h3>
         <p>The five best design links, every day</p>
         <a href="https://sidebar.io/" target="_blank">Visit Website</a>
@@ -376,7 +395,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/sketch.png" class="logo" alt="Sketch Logo" />
+        <img src="{{ url_for('static', filename='Assets/sketch.png') }}" class="logo" alt="Sketch Logo" />
         <h3>Sketch</h3>
         <p>Sketch is the most popular design tool for UX/UI designers</p>
         <a href="https://www.sketch.com" target="_blank">Visit Website</a>
@@ -384,7 +403,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/lawsofux.png" class="logo" alt="Laws of UX Logo" />
+        <img src="{{ url_for('static', filename='Assets/lawsofux.png') }}" class="logo" alt="Laws of UX Logo" />
         <h3>Laws of UX</h3>
         <p>Researched principles and laws that help guide design process</p>
         <a href="https://lawsofux.com" target="_blank">Visit Website</a>
@@ -392,7 +411,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/open-doodles.png" class="logo" alt="Open Doodles Logo" />
+        <img src="{{ url_for('static', filename='Assets/open-doodles.png') }}" class="logo" alt="Open Doodles Logo" />
         <h3>Open Doodles</h3>
         <p>A Free Set of Sketchy Illustrations</p>
         <a href="https://www.opendoodles.com/" target="_blank">Visit Website</a>
@@ -400,7 +419,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/feather-icons.png" class="logo" alt="Feather Icons Logo" />
+        <img src="{{ url_for('static', filename='Assets/feather-icons.png') }}" class="logo" alt="Feather Icons Logo" />
         <h3>Feather Icons</h3>
         <p>Simply beautiful open source icons</p>
         <a href="https://feathericons.com" target="_blank">Visit Website</a>
@@ -408,7 +427,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/iconscout.png" class="logo" alt="Iconscout Logo" />
+        <img src="{{ url_for('static', filename='Assets/iconscout.png') }}" class="logo" alt="Iconscout Logo" />
         <h3>Iconscout</h3>
         <p>High-quality Icons, illustrations and stock photos</p>
         <a href="https://iconscout.com" target="_blank">Visit Website</a>
@@ -416,7 +435,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/google-fonts.png" class="logo" alt="Google Fonts Logo" />
+        <img src="{{ url_for('static', filename='Assets/google-fonts.png') }}" class="logo" alt="Google Fonts Logo" />
         <h3>Google Fonts</h3>
         <p>Making the web more beautiful, fast, and open through great typography</p>
         <a href="https://fonts.google.com" target="_blank">Visit Website</a>
@@ -424,7 +443,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/ui-movement.png" class="logo" alt="UI Movement Logo" />
+        <img src="{{ url_for('static', filename='Assets/ui-movement.png') }}" class="logo" alt="UI Movement Logo" />
         <h3>UI Movement</h3>
         <p>The best UI design inspiration, every day</p>
         <a href="https://uimovement.com/" target="_blank">Visit Website</a>
@@ -432,7 +451,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/blush.png" class="logo" alt="Blush Logo" />
+        <img src="{{ url_for('static', filename='Assets/blush.png') }}" class="logo" alt="Blush Logo" />
         <h3>Blush</h3>
         <p>Illustrations for everyone</p>
         <a href="https://blush.design" target="_blank">Visit Website</a>
@@ -440,7 +459,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/adobe-xd.png" class="logo" alt="Adobe XD Logo" />
+        <img src="{{ url_for('static', filename='Assets/adobe-xd.png') }}" class="logo" alt="Adobe XD Logo" />
         <h3>Adobe XD</h3>
         <p>An all-in-one design and prototyping app.</p>
         <a href="https://www.adobe.com/products/xd.html" target="_blank">Visit Website</a>
@@ -448,7 +467,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/happy-hues.gif" class="logo" alt="Happy Hues Logo" />
+        <img src="{{ url_for('static', filename='Assets/happy-hues.gif') }}" class="logo" alt="Happy Hues Logo" />
         <h3>Happy Hues</h3>
         <p>Curated colors in context</p>
         <a href="https://www.happyhues.co" target="_blank">Visit Website</a>
@@ -456,7 +475,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/growth-design.png" class="logo" alt="Growth Design Logo" />
+        <img src="{{ url_for('static', filename='Assets/growth-design.png') }}" class="logo" alt="Growth Design Logo" />
         <h3>Growth Design</h3>
         <p>Growth & UX case studies in a comic book format</p>
         <a href="https://growth.design/" target="_blank">Visit Website</a>
@@ -464,7 +483,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/design-systems.png" class="logo" alt="Design Systems Logo" />
+        <img src="{{ url_for('static', filename='Assets/design-systems.png') }}" class="logo" alt="Design Systems Logo" />
         <h3>Design Systems</h3>
         <p>An open-source checklist to help build design systems</p>
         <a href="https://www.designsystems.com/" target="_blank">Visit Website</a>
@@ -472,7 +491,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/humaaans.png" class="logo" alt="Humaaans Logo" />
+        <img src="{{ url_for('static', filename='Assets/humaaans.png') }}" class="logo" alt="Humaaans Logo" />
         <h3>Humaaans</h3>
         <p>Mix-&-match illustrations of people with a design library</p>
         <a href="https://www.humaaans.com" target="_blank">Visit Website</a>
@@ -480,7 +499,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/noun-project.png" class="logo" alt="Noun Project Logo" />
+        <img src="{{ url_for('static', filename='Assets/noun-project.png') }}" class="logo" alt="Noun Project Logo" />
         <h3>Noun Project</h3>
         <p>Over 2 Million curated icons, created by a global community</p>
         <a href="https://thenounproject.com/" target="_blank">Visit Website</a>
@@ -488,7 +507,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/site-inspire.png" class="logo" alt="Site Inspire Logo" />
+        <img src="{{ url_for('static', filename='Assets/site-inspire.png') }}" class="logo" alt="Site Inspire Logo" />
         <h3>Site Inspire</h3>
         <p>Showcase of the finest web and interactive design</p>
         <a href="https://www.siteinspire.com/" target="_blank">Visit Website</a>
@@ -496,7 +515,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/design-calendar.png" class="logo" alt="Design Calendar Logo" />
+        <img src="{{ url_for('static', filename='Assets/design-calendar.png') }}" class="logo" alt="Design Calendar Logo" />
         <h3>Design Calendar</h3>
         <p>The best online design events</p>
         <a href="https://designcalendar.io/" target="_blank">Visit Website</a>
@@ -504,7 +523,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/layout.png" class="logo" alt="Layout Logo" />
+        <img src="{{ url_for('static', filename='Assets/layout.png') }}" class="logo" alt="Layout Logo" />
         <h3>Layout</h3>
         <p>Weekly podcast about design, tech, programming and everything else</p>
         <a href="https://layout.fm" target="_blank">Visit Website</a>
@@ -512,7 +531,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/checklist.gif" class="logo" alt="Front End Checklist Logo" />
+        <img src="{{ url_for('static', filename='Assets/checklist.gif') }}" class="logo" alt="Front End Checklist Logo" />
         <h3>Front End Checklist</h3>
         <p>Checklist for modern websites and meticulous developers</p>
         <a href="https://frontendchecklist.io/" target="_blank">Visit Website</a>
@@ -520,7 +539,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/duo.png" class="logo" alt="Duo Logo" />
+        <img src="{{ url_for('static', filename='Assets/duo.png') }}" class="logo" alt="Duo Logo" />
         <h3>Duo</h3>
         <p>Collection of colour combinations curated from the web</p>
         <a href="https://duo.alexpate.uk" target="_blank">Visit Website</a>
@@ -528,7 +547,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/heroicons.png" class="logo" alt="Heroicons Logo" />
+        <img src="{{ url_for('static', filename='Assets/heroicons.png') }}" class="logo" alt="Heroicons Logo" />
         <h3>Heroicons</h3>
         <p>Open source icons from the creators of Tailwind CSS</p>
         <a href="https://heroicons.com/" target="_blank">Visit Website</a>
@@ -536,7 +555,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/drawkit.png" class="logo" alt="DrawKit Logo" />
+        <img src="{{ url_for('static', filename='Assets/drawkit.png') }}" class="logo" alt="DrawKit Logo" />
         <h3>DrawKit</h3>
         <p>Beautiful illustrations for you to use on your next website</p>
         <a href="https://www.drawkit.io/" target="_blank">Visit Website</a>
@@ -544,7 +563,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/designbetter.png" class="logo" alt="Design Better Podcast Logo" />
+        <img src="{{ url_for('static', filename='Assets/designbetter.png') }}" class="logo" alt="Design Better Podcast Logo" />
         <h3>Design Better Podcast</h3>
         <p>Insights from the world's most renowned design leaders</p>
         <a href="https://www.designbetter.co/podcast" target="_blank">Visit Website</a>
@@ -552,7 +571,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/invision-studio.png" class="logo" alt="InVision Studio Logo" />
+        <img src="{{ url_for('static', filename='Assets/invision-studio.png') }}" class="logo" alt="InVision Studio Logo" />
         <h3>InVision Studio</h3>
         <p>Turn screens into interactive prototypes</p>
         <a href="https://www.invisionapp.com/studio" target="_blank">Visit Website</a>
@@ -560,7 +579,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/hooked.png" class="logo" alt="Hooked Logo" />
+        <img src="{{ url_for('static', filename='Assets/hooked.png') }}" class="logo" alt="Hooked Logo" />
         <h3>Hooked</h3>
         <p>How products are made to be addictive</p>
         <a href="https://www.nirandfar.com/hooked/" target="_blank">Visit Website</a>
@@ -568,7 +587,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/ux-collective.png" class="logo" alt="UX Collective Logo" />
+        <img src="{{ url_for('static', filename='Assets/ux-collective.png') }}" class="logo" alt="UX Collective Logo" />
         <h3>UX Collective</h3>
         <p>Curated stories on UX, Visual & Product Design</p>
         <a href="https://uxdesign.cc/" target="_blank">Visit Website</a>
@@ -576,7 +595,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/stark.png" class="logo" alt="Stark Logo" />
+        <img src="{{ url_for('static', filename='Assets/stark.png') }}" class="logo" alt="Stark Logo" />
         <h3>Stark</h3>
         <p>Color-blind simulator and contrast checker</p>
         <a href="https://www.getstark.co/" target="_blank">Visit Website</a>
@@ -584,7 +603,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/a11y-project.png" class="logo" alt="A11y Project Logo" />
+        <img src="{{ url_for('static', filename='Assets/a11y-project.png') }}" class="logo" alt="A11y Project Logo" />
         <h3>A11y Project</h3>
         <p>Community-driven effort to make web accessibility easier</p>
         <a href="https://a11yproject.com/" target="_blank">Visit Website</a>
@@ -592,7 +611,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/undraw.png" class="logo" alt="Undraw Logo" />
+        <img src="{{ url_for('static', filename='Assets/undraw.png') }}" class="logo" alt="Undraw Logo" />
         <h3>Undraw</h3>
         <p>Open-source illustrations for any idea</p>
         <a href="https://undraw.co" target="_blank">Visit Website</a>
@@ -600,7 +619,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/pexels.png" class="logo" alt="Pexels Logo" />
+        <img src="{{ url_for('static', filename='Assets/pexels.png') }}" class="logo" alt="Pexels Logo" />
         <h3>Pexels</h3>
         <p>Stock photos & videos shared by talented creators.</p>
         <a href="https://www.pexels.com" target="_blank">Visit Website</a>
@@ -608,7 +627,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/animockup.png" class="logo" alt="Animockup Logo" />
+        <img src="{{ url_for('static', filename='Assets/animockup.png') }}" class="logo" alt="Animockup Logo" />
         <h3>Animockup</h3>
         <p>Animated product mockups with videos and animated GIFs</p>
         <a href="https://animockup.com/" target="_blank">Visit Website</a>
@@ -617,7 +636,7 @@
 
       <!-- Jobs -->
       <div class="resource-card">
-        <img src="Assets/we-the-makers.png" class="logo" alt="We The Makers Club Logo" />
+        <img src="{{ url_for('static', filename='Assets/we-the-makers.png') }}" class="logo" alt="We The Makers Club Logo" />
         <h3>We The Makers Club</h3>
         <p>Sources and selects the top creative jobs</p>
         <a href="https://wethemakersclub.com/" target="_blank">Visit Website</a>
@@ -625,7 +644,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/dribbble-jobs.png" class="logo" alt="Dribbble Jobs Logo" />
+        <img src="{{ url_for('static', filename='Assets/dribbble-jobs.png') }}" class="logo" alt="Dribbble Jobs Logo" />
         <h3>Dribbble Jobs</h3>
         <p>Connect with designers and jobs worldwide</p>
         <a href="https://dribbble.com/jobs" target="_blank">Visit Website</a>
@@ -633,7 +652,7 @@
       </div>
       
       <div class="resource-card">
-        <img src="Assets/amazing-design-people.png" class="logo" alt="Amazing Design People Logo" />
+        <img src="{{ url_for('static', filename='Assets/amazing-design-people.png') }}" class="logo" alt="Amazing Design People Logo" />
         <h3>Amazing Design People</h3>
         <p>Find amazing designers for hire</p>
         <a href="https://www.amazingdesignpeople.com/" target="_blank">Visit Website</a>
@@ -642,7 +661,7 @@
 
       <!-- Resources -->
       <div class="resource-card">
-        <img src="Assets/ui8.png" class="logo" alt="UI8 Logo" />
+        <img src="{{ url_for('static', filename='Assets/ui8.png') }}" class="logo" alt="UI8 Logo" />
         <h3>UI8</h3>
         <p>Curated digital marketplace for product designers</p>
         <a href="https://ui8.net/" target="_blank">Visit Website</a>
@@ -650,7 +669,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/paper-sizes.png" class="logo" alt="Paper Sizes Logo" />
+        <img src="{{ url_for('static', filename='Assets/paper-sizes.png') }}" class="logo" alt="Paper Sizes Logo" />
         <h3>Paper Sizes</h3>
         <p>All the sizes for international paper formats</p>
         <a href="https://papersizes.io/" target="_blank">Visit Website</a>
@@ -658,7 +677,7 @@
       </div>
       
       <div class="resource-card">
-        <img src="Assets/figma-resources.png" class="logo" alt="Figma Resources Logo" />
+        <img src="{{ url_for('static', filename='Assets/figma-resources.png') }}" class="logo" alt="Figma Resources Logo" />
         <h3>Figma Resources</h3>
         <p>Resources made with love by the Figma community</p>
         <a href="https://www.figma.com/community" target="_blank">Visit Website</a>
@@ -667,7 +686,7 @@
 
       <!-- Wireframing -->
       <div class="resource-card">
-        <img src="Assets/whimsical.png" class="logo" alt="Whimsical Logo" />
+        <img src="{{ url_for('static', filename='Assets/whimsical.png') }}" class="logo" alt="Whimsical Logo" />
         <h3>Whimsical</h3>
         <p>Collaborate visually. Fast and delightful.</p>
         <a href="https://whimsical.com" target="_blank">Visit Website</a>
@@ -675,7 +694,7 @@
       </div>
 
       <div class="resource-card">
-        <img src="Assets/wireframe-cc.png" class="logo" alt="Wireframe.cc Logo" />
+        <img src="{{ url_for('static', filename='Assets/wireframe-cc.png') }}" class="logo" alt="Wireframe.cc Logo" />
         <h3>Wireframe.cc</h3>
         <p>Design tool fine tuned for wireframing</p>
         <a href="https://wireframe.cc/" target="_blank">Visit Website</a>
@@ -683,7 +702,7 @@
       </div>
       
       <div class="resource-card">
-        <img src="Assets/sketchsheets.png" class="logo" alt="Sketchsheets Logo" />
+        <img src="{{ url_for('static', filename='Assets/sketchsheets.png') }}" class="logo" alt="Sketchsheets Logo" />
         <h3>Sketchsheets</h3>
         <p>Ready to print sketch sheet templates for UX designers</p>
         <a href="https://sketchsheets.com/" target="_blank">Visit Website</a>
@@ -692,7 +711,7 @@
       
       <!-- Books (Add more) -->
       <div class="resource-card">
-        <img src="Assets/dont-make-me-think.png" class="logo" alt="Don't Make Me Think Logo" />
+        <img src="{{ url_for('static', filename='Assets/dont-make-me-think.png') }}" class="logo" alt="Don't Make Me Think Logo" />
         <h3>Don't Make Me Think</h3>
         <p>A Common Sense Approach to Web Usability</p>
         <a href="http://www.sensible.com/dmmt.html" target="_blank">Visit Website</a>
@@ -700,7 +719,7 @@
       </div>
       
       <div class="resource-card">
-        <img src="Assets/universal-principles.png" class="logo" alt="Universal Principles of Design Logo" />
+        <img src="{{ url_for('static', filename='Assets/universal-principles.png') }}" class="logo" alt="Universal Principles of Design Logo" />
         <h3>Universal Principles of Design</h3>
         <p>A comprehensive reference for design principles</p>
         <a href="https://www.amazon.com/Universal-Principles-Design-William-Lidwell/dp/1592535879" target="_blank">Visit Website</a>
@@ -709,7 +728,7 @@
       
       <!-- More Prototyping Tools -->
       <div class="resource-card">
-        <img src="Assets/framer.png" class="logo" alt="Framer Logo" />
+        <img src="{{ url_for('static', filename='Assets/framer.png') }}" class="logo" alt="Framer Logo" />
         <h3>Framer</h3>
         <p>A powerful product that blends design and development</p>
         <a href="https://www.framer.com/" target="_blank">Visit Website</a>
@@ -717,7 +736,7 @@
       </div>
       
       <div class="resource-card">
-        <img src="Assets/principle.png" class="logo" alt="Principle Logo" />
+        <img src="{{ url_for('static', filename='Assets/principle.png') }}" class="logo" alt="Principle Logo" />
         <h3>Principle</h3>
         <p>Principle makes it easy to design animated and interactive user interfaces</p>
         <a href="https://principleformac.com/" target="_blank">Visit Website</a>
@@ -726,7 +745,7 @@
       
       <!-- More Accessibility -->
       <div class="resource-card">
-        <img src="Assets/color-safe.png" class="logo" alt="Color Safe Logo" />
+        <img src="{{ url_for('static', filename='Assets/color-safe.png') }}" class="logo" alt="Color Safe Logo" />
         <h3>Color Safe</h3>
         <p>Build accessible colour combinations</p>
         <a href="http://colorsafe.co/" target="_blank">Visit Website</a>
@@ -734,7 +753,7 @@
       </div>
       
       <div class="resource-card">
-        <img src="Assets/who-can-use.png" class="logo" alt="Who Can Use Logo" />
+        <img src="{{ url_for('static', filename='Assets/who-can-use.png') }}" class="logo" alt="Who Can Use Logo" />
         <h3>Who Can Use</h3>
         <p>Accessible color combination tester with different scenarios</p>
         <a href="https://whocanuse.com/" target="_blank">Visit Website</a>
@@ -743,7 +762,7 @@
       
       <!-- More Mockup Tools -->
       <div class="resource-card">
-        <img src="Assets/shotsnapp.png" class="logo" alt="shotsnapp Logo" />
+        <img src="{{ url_for('static', filename='Assets/shotsnapp.png') }}" class="logo" alt="shotsnapp Logo" />
         <h3>shotsnapp</h3>
         <p>Free device mockup presentation tool for your app and website design</p>
         <a href="https://shotsnapp.com/" target="_blank">Visit Website</a>
@@ -751,7 +770,7 @@
       </div>
       
       <div class="resource-card">
-        <img src="Assets/smart-upscaler.png" class="logo" alt="Smart Upscaler Logo" />
+        <img src="{{ url_for('static', filename='Assets/smart-upscaler.png') }}" class="logo" alt="Smart Upscaler Logo" />
         <h3>Smart Upscaler</h3>
         <p>Enlarge and enhance images automatically using AI</p>
         <a href="https://icons8.com/upscaler" target="_blank">Visit Website</a>
@@ -760,67 +779,66 @@
     </div>
     
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const radioButtons = document.querySelectorAll('.radio-tags input[type="radio"]');
-        const resourceCards = document.querySelectorAll('.resource-card');
-        const noResultsMessage = document.querySelector('.no-results');
-        
-        // Function to normalize category names
-        function normalizeCategory(category) {
-          return category.toLowerCase().replace(/\s+/g, '-');
-        }
-        
-        // Function to filter resources based on selected category
-        function filterResources(category) {
-          let visibleCount = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+          const radioButtons = document.querySelectorAll('.radio-tags input[type="radio"]');
+          const resourceCards = document.querySelectorAll('.resource-card');
+          const noResultsMessage = document.querySelector('.no-results');
           
-          // Apply filtering with animation
-          resourceCards.forEach(card => {
-            const cardCategory = card.querySelector('.tag_cat').textContent.trim();
-            const normalizedCardCategory = normalizeCategory(cardCategory);
-            
-            if (category === 'all' || normalizedCardCategory === category) {
-              // Show this card
-              card.style.opacity = '1';
-              card.style.display = 'flex';
-              visibleCount++;
-            } else {
-              // Hide this card with animation
-              card.style.opacity = '0';
-              setTimeout(() => {
-                card.style.display = 'none';
-              }, 300);
-            }
-          });
-          
-          // Show/hide no results message
-          if (visibleCount === 0) {
-            noResultsMessage.style.display = 'block';
-          } else {
-            noResultsMessage.style.display = 'none';
+          // Function to normalize category names
+          function normalizeCategory(category) {
+            return category.toLowerCase().replace(/\s+/g, '-');
           }
-        }
-        
-        // Add event listeners to all radio buttons
-        radioButtons.forEach(radio => {
-          radio.addEventListener('change', function() {
-            filterResources(this.value);
+          
+          // Function to filter resources based on selected category
+          function filterResources(category) {
+            let visibleCount = 0;
+            
+            // Apply filtering with animation
+            resourceCards.forEach(card => {
+              const cardCategory = card.querySelector('.tag_cat').textContent.trim();
+              const normalizedCardCategory = normalizeCategory(cardCategory);
+              
+              if (category === 'all' || normalizedCardCategory === category) {
+                // Show this card
+                card.style.opacity = '1';
+                card.style.display = 'flex';
+                visibleCount++;
+              } else {
+                // Hide this card with animation
+                card.style.opacity = '0';
+                setTimeout(() => {
+                  card.style.display = 'none';
+                }, 300);
+              }
+            });
+            
+            // Show/hide no results message
+            if (visibleCount === 0) {
+              noResultsMessage.style.display = 'block';
+            } else {
+              noResultsMessage.style.display = 'none';
+            }
+          }
+          
+          // Add event listeners to all radio buttons
+          radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+              filterResources(this.value);
+            });
           });
+          
+          // Initialize all resources as visible
+          resourceCards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.display = 'flex';
+          });
+          
+          // Initialize with the checked radio button
+          const checkedRadio = document.querySelector('.radio-tags input[type="radio"]:checked');
+          if (checkedRadio) {
+            filterResources(checkedRadio.value);
+          }
         });
-        
-        // Initialize all resources as visible
-        resourceCards.forEach(card => {
-          card.style.opacity = '1';
-          card.style.display = 'flex';
-        });
-        
-        // Initialize with the checked radio button
-        const checkedRadio = document.querySelector('.radio-tags input[type="radio"]:checked');
-        if (checkedRadio) {
-          filterResources(checkedRadio.value);
-        }
-      });
-    </script>
+      </script>
   </body>
-
 </html>
